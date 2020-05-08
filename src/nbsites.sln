@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NbSites.Web", "NbSites.Web\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{0C0B01ED-1F12-4A07-A98D-A44E667528A4}"
 	ProjectSection(SolutionItems) = preProject
+		..\notes.md = ..\notes.md
 		..\readme.md = ..\readme.md
 	EndProjectSection
 EndProject
@@ -16,11 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NbSites.Common.Test", "NbSi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{39A01B0E-7C27-4FE4-921F-F70A0D9AA554}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "areas", "areas", "{6FB5B0BF-E13F-4D3F-93C0-DB8504AB12B0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{6FB5B0BF-E13F-4D3F-93C0-DB8504AB12B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{83401240-1896-437B-B9FC-0600D640492D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaMaker", "Tools\AreaMaker\AreaMaker.csproj", "{69DA554E-DD0D-49CA-9B6D-9F0FC4DB28A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "Modules\Demo\Demo.csproj", "{432949DD-BD96-4673-9FB9-28CD1326F793}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +47,10 @@ Global
 		{69DA554E-DD0D-49CA-9B6D-9F0FC4DB28A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69DA554E-DD0D-49CA-9B6D-9F0FC4DB28A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69DA554E-DD0D-49CA-9B6D-9F0FC4DB28A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{432949DD-BD96-4673-9FB9-28CD1326F793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{432949DD-BD96-4673-9FB9-28CD1326F793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{432949DD-BD96-4673-9FB9-28CD1326F793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{432949DD-BD96-4673-9FB9-28CD1326F793}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +59,7 @@ Global
 		{D95E6B5C-E940-4CDF-B319-8E77092774F0} = {39A01B0E-7C27-4FE4-921F-F70A0D9AA554}
 		{C515EEEF-E47B-4B35-81D7-64E9CAB37B5E} = {39A01B0E-7C27-4FE4-921F-F70A0D9AA554}
 		{69DA554E-DD0D-49CA-9B6D-9F0FC4DB28A8} = {83401240-1896-437B-B9FC-0600D640492D}
+		{432949DD-BD96-4673-9FB9-28CD1326F793} = {6FB5B0BF-E13F-4D3F-93C0-DB8504AB12B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C15D5D5A-B1FB-4C85-954D-9F6A8F3D52F7}
