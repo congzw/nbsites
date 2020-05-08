@@ -5,7 +5,7 @@
 - 2 exclude areas files for vs
 - 3 set main site PostBuildEvent
 - 4 add module startup code support in Common
-- 5 create area project "Demo" in folder "src\NbSites.Web.Areas\"
+- 5 create area project "Demo" in folder "src\Modules\"
 - ref project, setup services, enjoy it!
 
 ## set razor compile false
@@ -43,8 +43,8 @@
 
   <Target Name="CopyAreaFiles">
     <ItemGroup>
-      <MyCopyAreaFiles Include="$(SolutionDir)\NbSites.Web.Areas\**\Content\**\*.*" />
-      <MyCopyAreaFiles Include="$(SolutionDir)\NbSites.Web.Areas\**\Views\**\*.*" />
+      <MyCopyAreaFiles Include="$(SolutionDir)\Modules\**\Content\**\*.*" />
+      <MyCopyAreaFiles Include="$(SolutionDir)\Modules\**\Views\**\*.*" />
     </ItemGroup>
     <Copy SourceFiles="@(MyCopyAreaFiles)" DestinationFiles="@(MyCopyAreaFiles->'$(SolutionDir)\NbSites.Web\Areas\%(RecursiveDir)%(Filename)%(Extension)')" />
     <Message Text="----CopyAreaFiles完成----" Importance="high" />
