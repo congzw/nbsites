@@ -17,6 +17,13 @@
                 'jquery': '/content/libs/jquery/jquery-2.1.0'
                 , 'toastr': '/content/libs/toastr/toastr'
                 , 'bootstrap': '/content/libs/bootstrap'
+                , 'myClock': '/content/scripts/myClock/myClock'
+            },
+            shim: {
+                myClock: {
+                    exports: "myClock"
+                    //,deps: ["jquery"]
+                }
             }
         });
     </script>
@@ -26,7 +33,8 @@
         <partial name="_Demo/_Menus" />
         @RenderBody()
         <partial name="_Demo/_RequestContext" />
+        <partial name="_Demo/_MyClock" />
     </div>
-    <script src="~/Content/scripts/showScriptsLoading.js"></script>
+<script src="~/Content/scripts/showScriptsLoading.js"></script>
 </body>
 </html>
