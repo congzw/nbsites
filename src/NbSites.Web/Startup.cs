@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using NbSites.Common.Modules.Extensions;
 
 namespace NbSites.Web
 {
@@ -9,19 +8,12 @@ namespace NbSites.Web
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMyModules();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseMyModules();
         }
     }
 }
