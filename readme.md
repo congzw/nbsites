@@ -6,7 +6,7 @@ a template for multi sites web project
 
 - todo ...
 - todo add 3th di support
-- todo add basic layout template
+- 20200508 add basic layout template
 - 20200508 add area build and publish support
 - 20200508 add demo area
 - 20200508 add area develop notes 

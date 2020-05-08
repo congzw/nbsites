@@ -23,6 +23,11 @@
     <None Remove="Areas\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Views\Shared\_Basic\_BasicLayout.cshtml" />
+    <None Include="wwwroot\content\libs\bootstrap\bootstrap.js" />
+  </ItemGroup>
+
   <Target Name="CopyAreaFiles">
     <ItemGroup>
       <MyCopyAreaFiles Include="$(SolutionDir)\Modules\**\Content\**\*.*" />

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 
-namespace NbSites.Web.Boots
+namespace NbSites.Web.Libs.Boots
 {
     public static partial class BootExt
     {

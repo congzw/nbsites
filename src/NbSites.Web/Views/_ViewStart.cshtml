@@ -1,3 +1,8 @@
-﻿@{
-    Layout = "_Layout";
+﻿@using NbSites.Web.Libs.Helpers
+
+@inject IMyWebHelper myWebHelper
+@{
+    Layout = "_Basic/_BasicLayout";
+    //var config = myWebHelper.GetLayoutConfig();
+    //Layout = config.Layout;
 }

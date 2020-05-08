@@ -1,0 +1,18 @@
+﻿@using NbSites.Common
+@{
+    var serverNow = ViewData["ServerDate"] ?? MyDateHelper.Instance.GetDateNow();
+}
+<span id="serverClock"></span>
+<script type="text/javascript">
+    (function () {
+        "use strict";
+        var myClock = window["MyClock"];
+        if (!myClock) {
+            return;
+        }
+        var serverDate = new Date('@serverNow');
+        //console.log(serverDate);
+        var helper = myClock.init(serverDate, 'serverClock', { withDayOfWeek: true, withDate: true, withColor: false });
+        helper.beginTick();
+    }());
+</script>
