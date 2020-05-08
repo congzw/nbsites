@@ -1,11 +1,7 @@
-﻿@using NbSites.Web.Libs.Helpers
+﻿@using NbSites.Common.Layouts
 
-@inject IMyWebHelper myWebHelper
+@inject LayoutContext layoutContext
 @{
-    //todo
-    //var config = myWebHelper.GetLayoutConfig();
-    //Layout = config.Layout;
     //Layout = "_Layout";
-    //Layout = "_Basic/_BasicLayout";
-    Layout = "_Demo/_DemoLayout";
+    Layout = layoutContext.Config.Layout;
 }

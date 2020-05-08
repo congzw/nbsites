@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using NbSites.Areas.Web.Demo.Libs.AppServices;
 using NbSites.Areas.Web.Demo.Libs.Menus;
+using NbSites.Common.Layouts;
 using NbSites.Common.Menus;
 using NbSites.Common.Modules;
 
@@ -16,8 +17,9 @@ namespace NbSites.Areas.Web.Demo.Libs.Boots
             services.AddSingleton<IFooSingleton, FooService>();
             services.AddScoped<IFooScoped, FooService>();
             services.AddTransient<IFooTransient, FooService>();
-            
+
             services.AddSingleton<IMenuProvider, DemoMenuProvider>();
+            services.AddSingleton<ILayoutProcess, LayoutProvider>();
         }
 
         public void Configure(IApplicationBuilder builder)

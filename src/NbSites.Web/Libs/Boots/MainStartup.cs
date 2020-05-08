@@ -6,7 +6,6 @@ using Microsoft.Extensions.Logging;
 using NbSites.Common.Modules;
 using NbSites.Common.Modules.Extensions;
 using NbSites.Web.Apis;
-using NbSites.Web.Libs.Helpers;
 
 namespace NbSites.Web.Libs.Boots
 {
@@ -26,7 +25,6 @@ namespace NbSites.Web.Libs.Boots
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<TestAppService>();
-            services.AddSingleton<IMyWebHelper, MyWebHelper>();
 
             var mvcBuilder = services.AddMvc();
             mvcBuilder.AddMyModulePart();
