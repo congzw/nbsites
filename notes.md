@@ -1,6 +1,6 @@
 # how aspnetcore moudle areas works
 
-- 0 set razor compile false
+- 0 change razor compile setting
 - 1 hide areas files for .gitignore
 - 2 exclude areas files for vs
 - 3 set main site PostBuildEvent
@@ -8,11 +8,12 @@
 - 5 create area project "Demo" in folder "src\Modules\"
 - ref project, setup services, enjoy it!
 
-## set razor compile false
+## set razor compile false and PreserveCompilationContext to true
 
 ``` xml
 
-	<MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
 
 ```
 

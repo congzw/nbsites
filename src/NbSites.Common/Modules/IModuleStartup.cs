@@ -15,6 +15,14 @@ namespace NbSites.Common.Modules
         void Configure(IApplicationBuilder builder);
     }
 
+    public class ModuleStartupOrder
+    {
+        public int Order_Core { get; set; } = 0;
+        public int Order_App { get; set; } = 1000;
+
+        public static ModuleStartupOrder Instance = new ModuleStartupOrder();
+    }
+
     public abstract class ModuleStartupBase : IModuleStartup
     {
         /// <inheritdoc />
