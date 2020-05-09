@@ -1,13 +1,25 @@
 ﻿using NbSites.Common.Menus;
+using NbSites.Common.ProcessProviders;
 
-namespace NbSites.Areas.Web.Demo.Libs.Menus
+namespace NbSites.Areas.Web.Demo.Libs.ProcessProviders
 {
-    public class DemoMenuProvider : IMenuProvider
+    public class MenuProcessProvider : IMyProcessProvider
     {
-        public int Order { get; set; } = 0;
+        public float ProcessOrder { get; set; }
 
-        public void ProcessMenu(MenuContext menuContext)
+        public bool ShouldProcess(object context)
         {
+            return context is MenuContext;
+        }
+
+        public void Process(object context)
+        {
+            var menuContext = context as MenuContext;
+            if (menuContext == null)
+            {
+                return;
+            }
+
             AddDemoMenu(menuContext, "~/");
             AddDemoMenu(menuContext, "~/default/Demo/Home/Index");
             AddDemoMenu(menuContext, "~/foo/Demo/Home/Index");

@@ -1,28 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using NbSites.Common.ProcessProviders;
 
 namespace NbSites.Common.Layouts
 {
     public class LayoutContext
     {
-        public LayoutContext(IEnumerable<ILayoutProcess> providers)
+        public LayoutContext(MyProcessService processService)
         {
             Config = new LayoutConfig();
-            Init(providers);
+            processService.Process(this);
         }
 
         public LayoutConfig Config { get; set; }
-
-        protected void Init(IEnumerable<ILayoutProcess> providers)
-        {
-            if (providers != null)
-            {
-                var orderedProviders = providers.OrderBy(x => x.Order).ToList();
-                foreach (var provider in orderedProviders)
-                {
-                    provider.Process(this);
-                }
-            }
-        }
     }
 }

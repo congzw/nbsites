@@ -1,28 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using NbSites.Common.ProcessProviders;
 
 namespace NbSites.Common.Menus
 {
     public class MenuContext
     {
-        public MenuContext(IEnumerable<IMenuProvider> providers)
+        public MenuContext(MyProcessService processService)
         {
             Menus = new List<Menu>();
-            Init(providers);
+            processService.Process(this);
         }
 
         public IList<Menu> Menus { get; set; }
-        
-        protected void Init(IEnumerable<IMenuProvider> providers)
-        {
-            if (providers != null)
-            {
-                var menuProviders = providers.OrderBy(x => x.Order).ToList();
-                foreach (var menuProvider in menuProviders)
-                {
-                    menuProvider.ProcessMenu(this);
-                }
-            }
-        }
     }
 }

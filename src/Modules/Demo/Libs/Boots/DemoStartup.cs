@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using NbSites.Areas.Web.Demo.Libs.AppServices;
-using NbSites.Areas.Web.Demo.Libs.Menus;
-using NbSites.Common.Layouts;
-using NbSites.Common.Menus;
+using NbSites.Areas.Web.Demo.Libs.ProcessProviders;
 using NbSites.Common.Modules;
+using NbSites.Common.ProcessProviders;
 
 namespace NbSites.Areas.Web.Demo.Libs.Boots
 {
@@ -18,8 +17,8 @@ namespace NbSites.Areas.Web.Demo.Libs.Boots
             services.AddScoped<IFooScoped, FooService>();
             services.AddTransient<IFooTransient, FooService>();
 
-            services.AddSingleton<IMenuProvider, DemoMenuProvider>();
-            services.AddSingleton<ILayoutProcess, LayoutProvider>();
+            services.AddTransient<IMyProcessProvider, MenuProcessProvider>();
+            services.AddTransient<IMyProcessProvider, LayoutProcessProvider>();
         }
 
         public void Configure(IApplicationBuilder builder)
