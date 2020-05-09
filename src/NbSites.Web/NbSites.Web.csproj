@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Modules\Demo\Demo.csproj" />
     <ProjectReference Include="..\NbSites.Common\NbSites.Common.csproj" />
   </ItemGroup>
 
@@ -38,8 +39,8 @@
   </Target>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Delete Files="App_Offline.htm" />
     <CallTarget Targets="CopyAreaFiles" />
+    <Delete Files="App_Offline.htm" />
   </Target>
 
 </Project>
