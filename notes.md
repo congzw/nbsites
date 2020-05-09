@@ -74,3 +74,6 @@
 - route_site_area: "{site}/{area:exists}/{controller}/{action}/{id?}"
 - route_area:"{area:exists}/{controller}/{action}/{id?}"
 - route_root:"{controller=Home}/{action=Index}/{id?}"
+
+
+## require for mpa
