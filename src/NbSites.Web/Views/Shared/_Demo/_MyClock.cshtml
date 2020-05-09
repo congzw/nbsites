@@ -3,7 +3,7 @@
     var serverNow = ViewData["ServerDate"] ?? MyDateHelper.Instance.GetDateNow();
 }
 <span id="serverClock"></span>
-<script type="text/javascript">
+<script type="text/javascript" id="@this.Path">
     require(['myClock'], function (myClock) {
         "use strict";
         var serverDate = new Date('@serverNow');

@@ -10,7 +10,9 @@
     <link href="~/content/libs/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="~/content/libs/toastr/toastr.css" rel="stylesheet" />
     <script src="~/content/libs/require/require.min.js"></script>
-    <script>
+    <partial name="_RequireConfig" />
+    <partial name="_RequireConfigArea" />
+    <script id="@this.Path">
         //todo auto find and join require_config scripts for area
         requirejs.config({
             paths: {

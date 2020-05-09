@@ -18,19 +18,27 @@
         closeMethod: false
     };
 
-    var toastMessage = function (msg) {
-        toastr.info(msg, 'async load scripts:');
+    var toastMessage = function (msg, group) {
+        toastr.info(msg, group);
     };
 
     $(function () {
 
-        var scriptsInfo = "";
-        //$("script").each(function () {
-        //    scriptsInfo += "<p>" + this.src + "</p>";
-        //});
-        $("script[async]").each(function () {
-            scriptsInfo += "<p>" + this.src + "</p>";
+        var asyncScripts = "";
+        var syncScripts = "";
+
+        $("script").each(function (index, element) {
+            if ($(element).attr('async')) {
+                asyncScripts += "<p>" + this.src + "</p>";
+            } else {
+                if (this.src) {
+                    syncScripts += "<p>" + this.src + "</p>";
+                } else {
+                    syncScripts += "<p> inline script: " + this.id + "</p>";
+                }
+            }
         });
-        toastMessage(scriptsInfo);
+        toastMessage(syncScripts, 'sync load scripts:');
+        toastMessage(asyncScripts, 'async load scripts:');
     });
 });
