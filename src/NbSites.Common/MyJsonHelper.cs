@@ -95,5 +95,15 @@ namespace NbSites.Common
         {
             return (T)Convert.ChangeType(value, typeof(T));
         }
+
+        public static string ToJson(this object value, bool indented)
+        {
+            return MyJsonHelper.Resolve().SerializeObject(value, indented);
+        }
+
+        public static T FromJson<T>(this string json, T defaultValue)
+        {
+            return MyJsonHelper.Resolve().DeserializeObject<T>(json, defaultValue);
+        }
     }
 }

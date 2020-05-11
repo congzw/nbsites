@@ -89,7 +89,7 @@ namespace NbSites.Common.Contexts
             }
         }
 
-        internal static MyContextGroup GetOrCreate(this MyRequestContext context, string group)
+        internal static MyContextGroup GetOrCreate(this MyRequestContext context, string group, bool autoCreate = true)
         {
             if (context == null)
             {
@@ -104,8 +104,11 @@ namespace NbSites.Common.Contexts
             var theGroup = context.Groups.SingleOrDefault(x => x.GroupName == group);
             if (theGroup == null)
             {
-                theGroup = new MyContextGroup { GroupName = @group };
-                context.Groups.Add(theGroup);
+                if (autoCreate)
+                {
+                    theGroup = new MyContextGroup { GroupName = @group };
+                    context.Groups.Add(theGroup);
+                }
             }
             return theGroup;
         }

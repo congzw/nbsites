@@ -1,4 +1,6 @@
-﻿@{
+﻿@using NbSites.Common.Contexts
+@{
+//this.Context.GetMyRequestContext().AppendPageInfos(this.ViewContext);
 }
 <!DOCTYPE html>
 <html>
@@ -37,6 +39,6 @@
         <partial name="_Demo/_RequestContext" />
         <partial name="_Demo/_MyClock" />
     </div>
-<script src="~/Content/scripts/showScriptsLoading.js"></script>
+    <script src="~/Content/scripts/showScriptsLoading.js"></script>
 </body>
 </html>
