@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc.Razor;
+﻿using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using NbSites.Common.Contexts;
 
@@ -13,7 +12,6 @@ namespace NbSites.Common.Web
             set
             {
                 base.ViewContext = value;
-                Debug.WriteLine(">>>>>>>>>>>" + Path);
                 Context.GetMyRequestContext().AppendPageInfos(base.ViewContext);
             }
         }
