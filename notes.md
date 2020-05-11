@@ -6,6 +6,7 @@
 - 3 set main site PostBuildEvent
 - 4 add module startup code support in Common
 - 5 create area project "Demo" in folder "src\Modules\"
+- 6 optional, customize base razor page
 - ref project, setup services, enjoy it!
 
 ## set razor compile false and PreserveCompilationContext to true
@@ -74,6 +75,10 @@
 - route_site_area: "{site}/{area:exists}/{controller}/{action}/{id?}"
 - route_area:"{area:exists}/{controller}/{action}/{id?}"
 - route_root:"{controller=Home}/{action=Index}/{id?}"
+
+## customize base razor page
+
+add @inherits MyRazorPage to "_ViewImports.cshtml"
 
 
 ## require for mpa
