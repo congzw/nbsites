@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <partial name="_Basic/_HeadMeta" />
+    <partial name="_Basic/_HeadCss" />
+    <partial name="_Basic/_HeadCssArea" optional="true" />
+    <title>@ViewBag.Title</title>
+    <partial name="_Basic/_HeadJs" />
+    <partial name="_Basic/_HeadJsArea" optional="true" />
+</head>
+<body>
+    <div class="container">
+        <partial name="Widgets/_Menus" />
+        @RenderBody()
+        <partial name="Widgets/_ServerClock" />
+        <hr />
+        <partial name="Widgets/_RequestContext" />
+        <script src="~/Content/scripts/showScriptsLoading.js"></script>
+    </div>
+</body>
+</html>
