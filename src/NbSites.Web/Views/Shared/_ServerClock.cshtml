@@ -4,15 +4,11 @@
 }
 <span id="serverClock"></span>
 <script type="text/javascript" id="@this.Path">
-    (function () {
+    //inline invoke js module 
+    require(['myClock'], function (myClock) {
         "use strict";
-        var myClock = window["MyClock"];
-        if (!myClock) {
-            return;
-        }
         var serverDate = new Date('@serverNow');
-        //console.log(serverDate);
-        var helper = myClock.init(serverDate, 'serverClock', { withDayOfWeek: true, withDate: true, withColor: false });
+        var helper = myClock.init(serverDate, 'serverClock', { withDayOfWeek: true, withDate: true, withColor: true });
         helper.beginTick();
-    }());
+    });
 </script>
