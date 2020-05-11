@@ -5,6 +5,7 @@ namespace NbSites.Common.Web
 {
     public static class UrlHelperExtensions
     {
+        //todo area content tag
         public static string AreaContent(this IUrlHelper urlHelper, string contentPath, string area)
         {
             var areaContentPath = AreaUrlHelper.Instance.CreateAreaContent(new AreaContentArgs(){Area = area, Content = contentPath});

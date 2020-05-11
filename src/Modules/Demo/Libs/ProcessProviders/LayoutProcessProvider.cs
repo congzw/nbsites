@@ -23,7 +23,7 @@ namespace NbSites.Areas.Web.Demo.Libs.ProcessProviders
                 layoutContext.Config = new LayoutConfig();
             }
 
-            layoutContext.Config.Layout = "_Demo/_DemoLayout";
+            layoutContext.Config.Layout = "_Basic/_Layout";
         }
     }
 }
