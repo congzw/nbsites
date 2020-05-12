@@ -7,11 +7,11 @@ using NbSites.Common.ProcessProviders;
 
 namespace NbSites.Areas.Web.Demo.Libs.Boots
 {
-    public class DemoStartup : IModuleStartup
+    public class DemoStartup : ModuleStartupBase
     {
-        public int Order { get; } = 0;
+        public override int Order { get; } = 0;
 
-        public void ConfigureServices(IServiceCollection services)
+        public override void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IFooSingleton, FooService>();
             services.AddScoped<IFooScoped, FooService>();
@@ -21,7 +21,7 @@ namespace NbSites.Areas.Web.Demo.Libs.Boots
             services.AddTransient<IMyProcessProvider, LayoutProcessProvider>();
         }
 
-        public void Configure(IApplicationBuilder builder)
+        public override void Configure(IApplicationBuilder builder)
         {
         }
     }

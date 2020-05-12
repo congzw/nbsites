@@ -45,12 +45,23 @@ namespace NbSites.Common.Modules.Extensions
             configure?.Invoke(context);
 
             var provider = services.BuildServiceProvider();
-            var startupModules = provider.GetServices<IModuleStartup>();
-            startupModules = startupModules.OrderBy(x => x.Order);
+            var startupModules = provider.GetServices<IModuleStartup>().OrderBy(x => x.Order).ToList();
+            foreach (var startup in startupModules)
+            {
+                startup.PreConfigureServices();
+            }
+
             foreach (var startup in startupModules)
             {
                 startup.ConfigureServices(services);
             }
+
+            var rootProvider = services.BuildServiceProvider();
+            foreach (var startup in startupModules)
+            {
+                startup.PostConfigureServices(rootProvider);
+            }
+
             return context;
         }
         

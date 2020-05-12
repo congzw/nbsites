@@ -4,16 +4,16 @@ using NbSites.Common.Modules;
 
 namespace NbSites.Common.Layouts
 {
-    public class LayoutStartup : IModuleStartup
+    public class LayoutStartup : ModuleStartupBase
     {
-        public int Order { get; } = -1;
+        public override int Order { get; } = -1;
 
-        public void ConfigureServices(IServiceCollection services)
+        public override void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<LayoutContext>();
         }
 
-        public void Configure(IApplicationBuilder builder)
+        public override void Configure(IApplicationBuilder builder)
         {
         }
     }

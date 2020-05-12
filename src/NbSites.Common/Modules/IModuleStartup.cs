@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace NbSites.Common.Modules
@@ -10,9 +11,36 @@ namespace NbSites.Common.Modules
         /// </summary>
         int Order { get; }
 
+        /// <summary>
+        /// DI初始化前
+        /// </summary>
+        void PreConfigureServices();
+        /// <summary>
+        /// DI初始化
+        /// </summary>
+        /// <param name="services"></param>
         void ConfigureServices(IServiceCollection services);
+        /// <summary>
+        /// DI初始化后
+        /// </summary>
+        /// <param name="rootServiceProvider"></param>
+        void PostConfigureServices(IServiceProvider rootServiceProvider);
 
+        /// <summary>
+        /// Configure前
+        /// </summary>
+        /// <param name="builder"></param>
+        void PreConfigure(IApplicationBuilder builder);
+        /// <summary>
+        /// Configure
+        /// </summary>
+        /// <param name="builder"></param>
         void Configure(IApplicationBuilder builder);
+        /// <summary>
+        /// Configure后
+        /// </summary>
+        /// <param name="builder"></param>
+        void PostConfigure(IApplicationBuilder builder);
     }
 
     public class ModuleStartupOrder
@@ -26,16 +54,18 @@ namespace NbSites.Common.Modules
     public abstract class ModuleStartupBase : IModuleStartup
     {
         /// <inheritdoc />
-        public virtual int Order { get; } = 0;
-
+        public abstract int Order { get; }
         /// <inheritdoc />
-        public virtual void ConfigureServices(IServiceCollection services)
-        {
-        }
-
+        public virtual void PreConfigureServices() { }
         /// <inheritdoc />
-        public virtual void Configure(IApplicationBuilder app)
-        {
-        }
+        public abstract void ConfigureServices(IServiceCollection services);
+        /// <inheritdoc />
+        public virtual void PostConfigureServices(IServiceProvider rootServiceProvider) { }
+        /// <inheritdoc />
+        public virtual void PreConfigure(IApplicationBuilder builder) { }
+        /// <inheritdoc />
+        public virtual void Configure(IApplicationBuilder builder) { }
+        /// <inheritdoc />
+        public virtual void PostConfigure(IApplicationBuilder builder) { }
     }
 }

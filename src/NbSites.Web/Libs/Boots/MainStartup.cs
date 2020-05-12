@@ -9,7 +9,7 @@ using NbSites.Web.Apis;
 
 namespace NbSites.Web.Libs.Boots
 {
-    public class MainStartup : IModuleStartup
+    public class MainStartup : ModuleStartupBase
     {
         private readonly ILogger<Startup> _logger;
         private readonly IHostingEnvironment _env;
@@ -20,9 +20,9 @@ namespace NbSites.Web.Libs.Boots
             _env = env;
         }
 
-        public int Order { get; } = -100;
+        public override int Order { get; } = -100;
 
-        public void ConfigureServices(IServiceCollection services)
+        public override void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<TestAppService>();
 
@@ -31,7 +31,7 @@ namespace NbSites.Web.Libs.Boots
             mvcBuilder.SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
-        public void Configure(IApplicationBuilder app)
+        public override void Configure(IApplicationBuilder app)
         {
             if (_env.IsDevelopment())
             {
