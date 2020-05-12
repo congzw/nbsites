@@ -56,10 +56,9 @@ namespace NbSites.Common.Modules.Extensions
                 startup.ConfigureServices(services);
             }
 
-            var rootProvider = services.BuildServiceProvider();
             foreach (var startup in startupModules)
             {
-                startup.PostConfigureServices(rootProvider);
+                startup.PostConfigureServices(services);
             }
 
             return context;

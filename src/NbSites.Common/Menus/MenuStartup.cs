@@ -1,8 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using NbSites.Common.Modules;
-using NbSites.Common.ProcessProviders;
 
 namespace NbSites.Common.Menus
 {
@@ -12,18 +9,9 @@ namespace NbSites.Common.Menus
 
         public override void ConfigureServices(IServiceCollection services)
         {
+            ////eg: for multi tenants
+            //services.AddScoped<MenuContext>();
             services.AddSingleton<MenuContext>();
-        }
-        
-        public override void PostConfigureServices(IServiceProvider rootServiceProvider)
-        {
-            var menuContext = rootServiceProvider.GetRequiredService<MenuContext>();
-            var processService = rootServiceProvider.GetRequiredService<MyProcessService>();
-            processService.Process(menuContext);
-        }
-
-        public override void Configure(IApplicationBuilder builder)
-        {
         }
     }
 }

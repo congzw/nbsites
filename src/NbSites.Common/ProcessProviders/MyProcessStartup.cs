@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using NbSites.Common.Modules;
 
 namespace NbSites.Common.ProcessProviders
@@ -11,10 +10,6 @@ namespace NbSites.Common.ProcessProviders
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<MyProcessService>();
-        }
-
-        public override void Configure(IApplicationBuilder builder)
-        {
         }
     }
 }

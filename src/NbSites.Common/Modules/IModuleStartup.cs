@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace NbSites.Common.Modules
@@ -20,11 +19,12 @@ namespace NbSites.Common.Modules
         /// </summary>
         /// <param name="services"></param>
         void ConfigureServices(IServiceCollection services);
+
         /// <summary>
         /// DI初始化后
         /// </summary>
-        /// <param name="rootServiceProvider"></param>
-        void PostConfigureServices(IServiceProvider rootServiceProvider);
+        /// <param name="services"></param>
+        void PostConfigureServices(IServiceCollection services);
 
         /// <summary>
         /// Configure前
@@ -60,7 +60,7 @@ namespace NbSites.Common.Modules
         /// <inheritdoc />
         public abstract void ConfigureServices(IServiceCollection services);
         /// <inheritdoc />
-        public virtual void PostConfigureServices(IServiceProvider rootServiceProvider) { }
+        public virtual void PostConfigureServices(IServiceCollection services) { }
         /// <inheritdoc />
         public virtual void PreConfigure(IApplicationBuilder builder) { }
         /// <inheritdoc />

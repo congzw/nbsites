@@ -20,9 +20,5 @@ namespace NbSites.Areas.Web.Demo.Libs.Boots
             services.AddTransient<IMyProcessProvider, MenuProcessProvider>();
             services.AddTransient<IMyProcessProvider, LayoutProcessProvider>();
         }
-
-        public override void Configure(IApplicationBuilder builder)
-        {
-        }
     }
 }
