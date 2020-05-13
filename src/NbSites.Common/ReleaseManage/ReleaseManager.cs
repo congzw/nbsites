@@ -64,7 +64,23 @@ namespace NbSites.Common.ReleaseManage
 
         public ReleaseManifest GetReleaseManifest(GetReleaseManifestArgs args)
         {
-            var theOne = _repository.GetReleaseManifests().SingleOrDefault(x => x.ProductId == args.ProductId && x.Version == Version.Parse(args.Version));
+            if (args == null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
+            if (string.IsNullOrWhiteSpace(args.ProductId))
+            {
+                return null;
+            }
+
+            var tryParse = Version.TryParse(args.Version, out var version);
+            if (!tryParse)
+            {
+                return null;
+            }
+            
+            var theOne = _repository.GetReleaseManifests().SingleOrDefault(x => x.ProductId == args.ProductId && x.Version == version);
             return theOne;
         }
     }

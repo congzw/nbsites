@@ -131,14 +131,21 @@ namespace Common
             return value;
         }
 
-        public static object LogJson(this object value)
+        public static object LogJson(this object value, bool indented = false)
         {
             if (value == null)
             {
                 Trace.WriteLine("null");
             }
 
-            Trace.WriteLine(JsonConvert.SerializeObject(value, Formatting.None));
+            if (indented)
+            {
+                Trace.WriteLine(JsonConvert.SerializeObject(value, Formatting.Indented));
+            }
+            else
+            {
+                Trace.WriteLine(JsonConvert.SerializeObject(value, Formatting.None));
+            }
             return value;
         }
 

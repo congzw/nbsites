@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NbSites.Common.ReleaseManage.Manifests
 {
@@ -19,6 +20,20 @@ namespace NbSites.Common.ReleaseManage.Manifests
         public DateTime CreateAt { get; set; }
 
         public IList<ReleaseManifestItem> Items { get; set; }
+        
+        public ReleaseManifest WithConfigItem(string configItemId, Version configItemVersion)
+        {
+            var theOne = Items.SingleOrDefault(x => x.ConfigItemId == configItemId && x.ConfigItemVersion == configItemVersion);
+            if (theOne == null)
+            {
+                theOne = new ReleaseManifestItem();
+                theOne.ConfigItemId = configItemId;
+                theOne.ConfigItemVersion = configItemVersion;
+                Items.Add(theOne);
+            }
+
+            return this;
+        }
     }
 
     /// <summary>
