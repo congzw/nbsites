@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Modules\Demo\Demo.csproj" />
+    <ProjectReference Include="..\Modules\PRM\PRM.csproj" />
     <ProjectReference Include="..\NbSites.Common\NbSites.Common.csproj" />
   </ItemGroup>
 

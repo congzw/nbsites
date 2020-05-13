@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <partial name="_Basic/_HeadMeta" />
+    <partial name="_Basic/_HeadCss" />
+    <partial name="_Basic/_HeadCssArea" optional="true" />
+    <title>@ViewBag.Title</title>
+    <partial name="_Basic/_HeadJs" />
+    <partial name="_Basic/_HeadJsArea" optional="true" />
+</head>
+<body>
+    <div class="container">
+        <h2>Layout of Area</h2>
+        <partial name="Widgets/_Menus" />
+        @RenderBody()
+        <partial name="Widgets/_ServerClock" />
+    </div>
+</body>
+</html>
