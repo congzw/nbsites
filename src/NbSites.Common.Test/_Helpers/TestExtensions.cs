@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 
 // ReSharper disable once CheckNamespace
 namespace Common
@@ -127,6 +128,17 @@ namespace Common
                 return value;
             }
             Trace.WriteLine(value);
+            return value;
+        }
+
+        public static object LogJson(this object value)
+        {
+            if (value == null)
+            {
+                Trace.WriteLine("null");
+            }
+
+            Trace.WriteLine(JsonConvert.SerializeObject(value, Formatting.None));
             return value;
         }
 
