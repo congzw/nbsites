@@ -1,0 +1,28 @@
+﻿<script src="~/content/libs/require/require.min.js"></script>
+<script id="@this.Path">
+    "use strict";
+    //for all page
+    requirejs.config({
+        paths: {
+            'jquery': '/content/libs/jquery/jquery-2.1.0'
+            , 'layui': '/content/libs/layui/layui.all'
+            , 'toastr': '/content/libs/toastr/toastr'
+            , 'bootstrap': '/content/libs/bootstrap'
+            , 'myClock': '/content/scripts/myClock/myClock'
+        },
+        shim: {
+            myClock: {
+                exports: "myClock"
+            },
+            layui: {
+                exports: "layui"
+            }
+        }
+    });
+
+    //define(['layui'], function (undefined) {
+    //    layui.config({ dir: "/content/libs/layui/" });
+    //});
+    
+    console.log('loading @this.Path');
+</script>
