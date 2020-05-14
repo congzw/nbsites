@@ -14,11 +14,26 @@ namespace NbSites.Common.ReleaseManage.Manifests
             Items = new List<ReleaseManifestItem>();
         }
 
+        /// <summary>
+        /// 产品Id
+        /// </summary>
         public string ProductId { get; set; }
+        /// <summary>
+        /// 产品的发布版本
+        /// </summary>
         public string Version { get; set; }
+        /// <summary>
+        /// 描述
+        /// </summary>
         public string Desc { get; set; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
         public DateTime CreateAt { get; set; }
 
+        /// <summary>
+        /// 清单项列表
+        /// </summary>
         public IList<ReleaseManifestItem> Items { get; set; }
         
         public ReleaseManifest WithConfigItem(string configItemId, string configItemVersion)
