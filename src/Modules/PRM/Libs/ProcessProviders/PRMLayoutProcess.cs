@@ -1,11 +1,11 @@
 ﻿//using NbSites.Common.Layouts;
 //using NbSites.Common.ProcessProviders;
 
-//namespace NbSites.Areas.Web.Demo.Libs.ProcessProviders
+//namespace NbSites.Areas.Web.PRM.Libs.ProcessProviders
 //{
-//    public class LayoutProcessProvider : IMyProcessProvider
+//    public class PRMLayoutProcess : IMyProcessProvider
 //    {
-//        public float ProcessOrder { get; set; }
+//        public float ProcessOrder { get; set; } = 1000; 
 //        public bool ShouldProcess(object context)
 //        {
 //            return context is LayoutContext;
@@ -17,13 +17,11 @@
 //            {
 //                return;
 //            }
-
 //            if (layoutContext.Config == null)
 //            {
 //                layoutContext.Config = new LayoutConfig();
 //            }
-
-//            layoutContext.Config.Layout = "_Basic/_Layout";
+//            layoutContext.Config.Layout = "_Layui/_Layout";
 //        }
 //    }
 //}

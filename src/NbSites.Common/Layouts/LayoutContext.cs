@@ -1,12 +1,13 @@
-﻿using NbSites.Common.ProcessProviders;
+﻿using System;
+using NbSites.Common.ProcessProviders;
 
 namespace NbSites.Common.Layouts
 {
     public class LayoutContext
     {
-        public LayoutContext(MyProcessService processService)
+        public LayoutContext(MyProcessService processService, LayoutConfig config)
         {
-            Config = new LayoutConfig();
+            Config = config ?? throw new ArgumentNullException(nameof(config));
             processService.Process(this);
         }
 

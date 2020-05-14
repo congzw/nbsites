@@ -1,3 +1,5 @@
+@using NbSites.Common.Layouts
+@inject LayoutContext layoutContext
 @{
-    Layout = "_Basic/_Layout";
+    Layout = layoutContext.Config.Layout;
 }

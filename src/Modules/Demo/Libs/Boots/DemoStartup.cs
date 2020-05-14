@@ -18,7 +18,7 @@ namespace NbSites.Areas.Web.Demo.Libs.Boots
             services.AddTransient<IFooTransient, FooService>();
 
             services.AddTransient<IMyProcessProvider, MenuProcessProvider>();
-            services.AddTransient<IMyProcessProvider, LayoutProcessProvider>();
+            //services.AddTransient<IMyProcessProvider, LayoutProcessProvider>();
         }
     }
 }

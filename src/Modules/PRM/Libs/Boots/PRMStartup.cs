@@ -12,6 +12,7 @@ namespace NbSites.Areas.Web.PRM.Libs.Boots
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IMyProcessProvider, PRMMenuProcess>();
+            //services.AddTransient<IMyProcessProvider, PRMLayoutProcess>();
         }
     }
 }
