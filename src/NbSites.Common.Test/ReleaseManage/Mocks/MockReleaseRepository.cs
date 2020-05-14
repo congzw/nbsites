@@ -99,37 +99,37 @@ namespace NbSites.Common.ReleaseManage.Mocks
             //product_a_release_1_0_0: release 1.0 at 2000-01-01
             var product_a_release_1_0_0 = new ReleaseManifest();
             product_a_release_1_0_0.ProductId = product_a.Id;
-            product_a_release_1_0_0.Version = new Version(1, 0, 0);
+            product_a_release_1_0_0.Version = "1.0.0";
             product_a_release_1_0_0.Desc = "...";
             product_a_release_1_0_0.CreateAt = new DateTime(2000, 1, 1);
 
-            product_a_release_1_0_0.WithConfigItem(product_a_specification.Id, new Version(1, 0, 0));
-            product_a_release_1_0_0.WithConfigItem(product_a_server.Id, new Version(1, 0, 0));
-            product_a_release_1_0_0.WithConfigItem(log_server.Id, new Version(1, 0, 0));
+            product_a_release_1_0_0.WithConfigItem(product_a_specification.Id, "1.0.0");
+            product_a_release_1_0_0.WithConfigItem(product_a_server.Id, "1.0.0");
+            product_a_release_1_0_0.WithConfigItem(log_server.Id, "1.0.0");
             repository.ReleaseManifests.Add(product_a_release_1_0_0);
 
             //product_a_release_1_0_1: product_a_server bugs hot fix at 2000-02-01
             var product_a_release_1_0_1 = new ReleaseManifest();
             product_a_release_1_0_1.ProductId = product_a.Id;
-            product_a_release_1_0_1.Version = new Version(1, 0, 1);
+            product_a_release_1_0_1.Version = "1.0.1";
             product_a_release_1_0_1.Desc = "...";
             product_a_release_1_0_1.CreateAt = new DateTime(2000, 2, 1);
 
-            product_a_release_1_0_1.WithConfigItem(product_a_specification.Id, new Version(1, 0, 0));
-            product_a_release_1_0_1.WithConfigItem(product_a_server.Id, new Version(1, 0, 1));
-            product_a_release_1_0_1.WithConfigItem(log_server.Id, new Version(1, 0, 0));
+            product_a_release_1_0_1.WithConfigItem(product_a_specification.Id, "1.0.0");
+            product_a_release_1_0_1.WithConfigItem(product_a_server.Id, "1.0.1");
+            product_a_release_1_0_1.WithConfigItem(log_server.Id, "1.0.0");
             repository.ReleaseManifests.Add(product_a_release_1_0_1);
 
             //product_a_release_1_1_0: release 1.1 at 2000-04-01
             var product_a_release_1_1_0 = new ReleaseManifest();
             product_a_release_1_1_0.ProductId = product_a.Id;
-            product_a_release_1_1_0.Version = new Version(1, 1, 0);
+            product_a_release_1_1_0.Version = "1.1.0";
             product_a_release_1_1_0.Desc = "...";
             product_a_release_1_1_0.CreateAt = new DateTime(2000, 4, 1);
 
-            product_a_release_1_1_0.WithConfigItem(product_a_specification.Id, new Version(1, 1, 0));
-            product_a_release_1_1_0.WithConfigItem(product_a_server.Id, new Version(1, 1, 0));
-            product_a_release_1_1_0.WithConfigItem(log_server.Id, new Version(1, 0, 2));
+            product_a_release_1_1_0.WithConfigItem(product_a_specification.Id, "1.1.0");
+            product_a_release_1_1_0.WithConfigItem(product_a_server.Id, "1.1.0");
+            product_a_release_1_1_0.WithConfigItem(log_server.Id, "1.0.2");
             repository.ReleaseManifests.Add(product_a_release_1_1_0);
         }
         
@@ -140,7 +140,7 @@ namespace NbSites.Common.ReleaseManage.Mocks
             //product_a_specification_1_0_0.Category = "product_a_specification";
             //product_a_specification_1_0_0.Name = "《产品A需求说明书V1.0.0》";
             //product_a_specification_1_0_0.CreateBy = "张三疯";
-            //product_a_specification_1_0_0.Version = new Version(1, 0, 0);
+            //product_a_specification_1_0_0.Version = "1.0.0";
             //product_a_specification_1_0_0.Desc = "...";
             //product_a_specification_1_0_0.CreateDate = new DateTime(2000, 1, 1);
             //product_a_specification_1_0_0.FilePath = "var/foo/blah/product_a_specification_1_0_0.docx";
@@ -151,7 +151,7 @@ namespace NbSites.Common.ReleaseManage.Mocks
             //product_a_server_1_0_0.Category = "product_a_server";
             //product_a_server_1_0_0.Name = "产品A服务器V1.0.0";
             //product_a_server_1_0_0.CreateBy = "李莫愁";
-            //product_a_server_1_0_0.Version = new Version(1, 0, 0);
+            //product_a_server_1_0_0.Version = "1.0.0";
             //product_a_server_1_0_0.Desc = "...";
             //product_a_server_1_0_0.CreateDate = new DateTime(2000, 2, 1);
             //product_a_server_1_0_0.FilePath = "var/foo/blah/product_a_server_1_0_0.zip";
@@ -182,7 +182,7 @@ namespace NbSites.Common.ReleaseManage.Mocks
             //product_a_specification_1_1_0.Id = "product_a_specification_1_1_0";
             //product_a_specification_1_1_0.Name = "《产品A需求说明书V1.1.0》";
             //product_a_specification_1_1_0.CreateBy = "张三疯";
-            //product_a_specification_1_1_0.Version = new Version(1, 1, 0);
+            //product_a_specification_1_1_0.Version = "1.1.0";
             //product_a_specification_1_1_0.Desc = "...";
             //product_a_specification_1_1_0.CreateDate = new DateTime(2000, 5, 1);
             //product_a_specification_1_1_0.FilePath = "var/foo/blah/product_a_specification_1_1_0.docx";
@@ -192,7 +192,7 @@ namespace NbSites.Common.ReleaseManage.Mocks
             //product_a_server_1_1_0.Id = "product_a_server_1_1_0";
             //product_a_server_1_1_0.Name = "产品A服务器V1.1.0";
             //product_a_server_1_1_0.CreateBy = "李莫愁";
-            //product_a_server_1_1_0.Version = new Version(1, 1, 0);
+            //product_a_server_1_1_0.Version = "1.1.0";
             //product_a_server_1_1_0.Desc = "...";
             //product_a_server_1_1_0.CreateDate = new DateTime(2000, 5, 1);
             //product_a_server_1_1_0.FilePath = "var/foo/blah/product_a_server_1_1_0.zip";
@@ -205,7 +205,7 @@ namespace NbSites.Common.ReleaseManage.Mocks
             //product_a_specification_1_0_0.Category = "product_a_specification";
             //product_a_specification_1_0_0.Name = "《产品A需求说明书V1.0.0》";
             //product_a_specification_1_0_0.CreateBy = "张三疯";
-            //product_a_specification_1_0_0.Version = new Version(1, 0, 0);
+            //product_a_specification_1_0_0.Version = "1.0.0";
             //product_a_specification_1_0_0.Desc = "...";
             //product_a_specification_1_0_0.CreateDate = new DateTime(2000, 1, 1);
             //product_a_specification_1_0_0.FilePath = "var/foo/blah/product_a_specification_1_0_0.docx";
@@ -216,7 +216,7 @@ namespace NbSites.Common.ReleaseManage.Mocks
             //product_a_server_1_0_0.Category = "product_a_server";
             //product_a_server_1_0_0.Name = "产品A服务器V1.0.0";
             //product_a_server_1_0_0.CreateBy = "李莫愁";
-            //product_a_server_1_0_0.Version = new Version(1, 0, 0);
+            //product_a_server_1_0_0.Version = "1.0.0";
             //product_a_server_1_0_0.Desc = "...";
             //product_a_server_1_0_0.CreateDate = new DateTime(2000, 2, 1);
             //product_a_server_1_0_0.FilePath = "var/foo/blah/product_a_server_1_0_0.zip";
@@ -247,7 +247,7 @@ namespace NbSites.Common.ReleaseManage.Mocks
             //product_a_specification_1_1_0.Id = "product_a_specification_1_1_0";
             //product_a_specification_1_1_0.Name = "《产品A需求说明书V1.1.0》";
             //product_a_specification_1_1_0.CreateBy = "张三疯";
-            //product_a_specification_1_1_0.Version = new Version(1, 1, 0);
+            //product_a_specification_1_1_0.Version = "1.1.0";
             //product_a_specification_1_1_0.Desc = "...";
             //product_a_specification_1_1_0.CreateDate = new DateTime(2000, 5, 1);
             //product_a_specification_1_1_0.FilePath = "var/foo/blah/product_a_specification_1_1_0.docx";
@@ -257,7 +257,7 @@ namespace NbSites.Common.ReleaseManage.Mocks
             //product_a_server_1_1_0.Id = "product_a_server_1_1_0";
             //product_a_server_1_1_0.Name = "产品A服务器V1.1.0";
             //product_a_server_1_1_0.CreateBy = "李莫愁";
-            //product_a_server_1_1_0.Version = new Version(1, 1, 0);
+            //product_a_server_1_1_0.Version = "1.1.0";
             //product_a_server_1_1_0.Desc = "...";
             //product_a_server_1_1_0.CreateDate = new DateTime(2000, 5, 1);
             //product_a_server_1_1_0.FilePath = "var/foo/blah/product_a_server_1_1_0.zip";

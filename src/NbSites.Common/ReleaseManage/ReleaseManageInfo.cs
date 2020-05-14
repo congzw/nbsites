@@ -18,9 +18,9 @@ namespace NbSites.Common.ReleaseManage
         }
 
         public IList<Product> Products { get; set; }
-        public IList<ReleaseManifest> ReleaseManifests { get; set; }
         public IList<ConfigItem> ConfigItems { get; set; }
         public IList<ConfigItemCommit> ConfigItemCommits { get; set; }
+        public IList<ReleaseManifest> ReleaseManifests { get; set; }
 
         public void Load(string filePath)
         {

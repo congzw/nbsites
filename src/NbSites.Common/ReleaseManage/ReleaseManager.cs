@@ -113,8 +113,9 @@ namespace NbSites.Common.ReleaseManage
             {
                 return null;
             }
-            
-            var theOne = _repository.GetReleaseManifests().SingleOrDefault(x => x.ProductId == args.ProductId && x.Version == version);
+
+            var releaseManifests = _repository.GetReleaseManifests().ToList();
+            var theOne = releaseManifests.SingleOrDefault(x => x.ProductId.MyEquals(args.ProductId) && x.Version.TryCompareAsVersion(args.Version));
             return theOne;
         }
 

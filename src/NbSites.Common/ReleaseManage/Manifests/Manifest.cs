@@ -15,15 +15,15 @@ namespace NbSites.Common.ReleaseManage.Manifests
         }
 
         public string ProductId { get; set; }
-        public Version Version { get; set; }
+        public string Version { get; set; }
         public string Desc { get; set; }
         public DateTime CreateAt { get; set; }
 
         public IList<ReleaseManifestItem> Items { get; set; }
         
-        public ReleaseManifest WithConfigItem(string configItemId, Version configItemVersion)
+        public ReleaseManifest WithConfigItem(string configItemId, string configItemVersion)
         {
-            var theOne = Items.SingleOrDefault(x => x.ConfigItemId == configItemId && x.ConfigItemVersion == configItemVersion);
+            var theOne = Items.SingleOrDefault(x => x.ConfigItemId.MyEquals(configItemId) && x.ConfigItemVersion.TryCompareAsVersion(configItemVersion));
             if (theOne == null)
             {
                 theOne = new ReleaseManifestItem();
@@ -48,6 +48,6 @@ namespace NbSites.Common.ReleaseManage.Manifests
         /// <summary>
         /// 配置项版本
         /// </summary>
-        public Version ConfigItemVersion { get; set; }
+        public string ConfigItemVersion { get; set; }
     }
 }
