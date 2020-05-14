@@ -1,4 +1,17 @@
+@using Microsoft.Extensions.Options
+@using NbSites.Areas.Web.PRM.Libs
+@using NbSites.Common
+
+@inject IOptions<PRMConfig> Options
+@inject IOptionsSnapshot<PRMConfig> Snapshot
+@inject PRMConfig Config
 @{
     ViewBag.Title = "PRM_Home_Index";
 }
 <h2>@this.Path</h2>
+<hr />
+<p>Options: @Options.Value.ToJson(false)</p>
+<hr />
+<p>Snapshot: @Snapshot.Value.ToJson(false)</p>
+<hr />
+<p>Config: @Config.ToJson(false)</p>
