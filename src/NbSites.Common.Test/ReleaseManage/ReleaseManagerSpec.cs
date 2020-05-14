@@ -90,5 +90,16 @@ namespace NbSites.Common.ReleaseManage
             result.LogJson(true);
             result.ShouldNotNull();
         }
+
+
+
+        [TestMethod]
+        public void Export_Should_Ok()
+        {
+            var releaseManager = MockHelper.CreateReleaseManager();
+            var result = releaseManager.Export();
+            result.LogJson(true);
+            result.ShouldNotNull();
+        }
     }
 }

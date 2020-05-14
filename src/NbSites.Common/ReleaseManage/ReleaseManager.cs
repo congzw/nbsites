@@ -11,10 +11,22 @@ namespace NbSites.Common.ReleaseManage
     {
         IList<Product> GetProducts(GetProductsArgs args);
         IList<ConfigItem> GetConfigItems(GetConfigItemsArgs args);
+        IList<ConfigItemCommit> GetConfigItemCommits(GetConfigItemCommitsArgs args);
+        IList<ReleaseManifest> GetReleaseManifests(GetReleaseManifestsArgs args);
         ReleaseManifest GetReleaseManifest(GetReleaseManifestArgs args);
+        ReleaseManageInfo Export();
+        
         //MessageResult AddConfigItem(ConfigItem configItem);
         //MessageResult RemoveConfigItem(ConfigItem configItem);
         //ConfigItem GetConfigItem();
+    }
+
+    public class GetConfigItemCommitsArgs
+    {
+    }
+
+    public class GetReleaseManifestsArgs
+    {
     }
 
     public class GetProductsArgs
@@ -62,6 +74,28 @@ namespace NbSites.Common.ReleaseManage
             return list;
         }
 
+        public IList<ConfigItemCommit> GetConfigItemCommits(GetConfigItemCommitsArgs args)
+        {
+            if (args == null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
+            var items = _repository.GetConfigItemCommits().OrderBy(x => x.CreateAt).ToList();
+            return items;
+        }
+
+        public IList<ReleaseManifest> GetReleaseManifests(GetReleaseManifestsArgs args)
+        {
+            if (args == null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
+            var items = _repository.GetReleaseManifests().OrderBy(x => x.ProductId).ThenBy(x => x.Version).ToList();
+            return items;
+        }
+
         public ReleaseManifest GetReleaseManifest(GetReleaseManifestArgs args)
         {
             if (args == null)
@@ -82,6 +116,16 @@ namespace NbSites.Common.ReleaseManage
             
             var theOne = _repository.GetReleaseManifests().SingleOrDefault(x => x.ProductId == args.ProductId && x.Version == version);
             return theOne;
+        }
+
+        public ReleaseManageInfo Export()
+        {
+            var info = new ReleaseManageInfo();
+            info.Products = GetProducts(new GetProductsArgs());
+            info.ConfigItems = GetConfigItems(new GetConfigItemsArgs());
+            info.ConfigItemCommits = GetConfigItemCommits(new GetConfigItemCommitsArgs());
+            info.ReleaseManifests = GetReleaseManifests(new GetReleaseManifestsArgs());
+            return info;
         }
     }
 }
