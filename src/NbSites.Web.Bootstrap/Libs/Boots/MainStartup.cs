@@ -11,10 +11,10 @@ namespace NbSites.Web.Libs.Boots
 {
     public class MainStartup : ModuleStartupBase
     {
-        private readonly ILogger<Startup> _logger;
+        private readonly ILogger<MainStartup> _logger;
         private readonly IHostingEnvironment _env;
 
-        public MainStartup(ILogger<Startup> logger, IHostingEnvironment env)
+        public MainStartup(ILogger<MainStartup> logger, IHostingEnvironment env)
         {
             _logger = logger;
             _env = env;

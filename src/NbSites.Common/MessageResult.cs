@@ -1,4 +1,7 @@
-﻿namespace NbSites.Common
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace NbSites.Common
 {
     public class MessageResult
     {
@@ -30,6 +33,19 @@
         {
             var result = new MessageResult() { Message = message, Success = false, Data = data };
             return result;
+        }
+    }
+    
+    public static class BatchMessageResultExtensions
+    {
+        public static MessageResult ToBatchResults(this IEnumerable<MessageResult> messageResults)
+        {
+            var batchResult = new MessageResult();
+            var results = messageResults.ToList();
+            batchResult.Message = "Total: " + results.Count;
+            batchResult.Success = results.All(x => x.Success);
+            batchResult.Data = results;
+            return batchResult;
         }
     }
 }

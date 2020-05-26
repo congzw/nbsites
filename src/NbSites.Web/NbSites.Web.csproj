@@ -13,26 +13,34 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Modules\Demo\Demo.csproj" />
-    <ProjectReference Include="..\Modules\PRM\PRM.csproj" />
-    <ProjectReference Include="..\NbSites.Common\NbSites.Common.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Areas\**" />
     <Content Remove="Areas\**" />
     <EmbeddedResource Remove="Areas\**" />
     <None Remove="Areas\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NbSites.Web.Bootstrap\NbSites.Web.Bootstrap.csproj" />
+  </ItemGroup>
+
   <Target Name="CopyAreaFiles">
     <ItemGroup>
-      <MyCopyAreaFiles Include="$(SolutionDir)\Modules\**\Content\**\*.*" />
-      <MyCopyAreaFiles Include="$(SolutionDir)\Modules\**\Views\**\*.*" />
+      <MyCopyAreaFiles Include="$(SolutionDir)Modules\**\Content\**\*.*" />
+      <MyCopyAreaFiles Include="$(SolutionDir)Modules\**\Views\**\*.*" />
     </ItemGroup>
     <Copy SourceFiles="@(MyCopyAreaFiles)" DestinationFiles="@(MyCopyAreaFiles->'$(SolutionDir)\NbSites.Web\Areas\%(RecursiveDir)%(Filename)%(Extension)')" />
     <Message Text="----CopyAreaFiles完成----" Importance="high" />
   </Target>
+
+  <Target Name="CopyAreaDlls">
+    <ItemGroup>
+      <MyCopyAreaDlls Include="$(SolutionDir)Modules\**\$(OutDir)NbSites.Areas.Web.*.dll" />
+      <MyCopyAreaDlls Include="$(SolutionDir)Modules\**\$(OutDir)NbSites.Areas.Web.*.pdb" />
+    </ItemGroup>
+    <Copy SourceFiles="@(MyCopyAreaDlls)" DestinationFiles="@(MyCopyAreaDlls->'$(SolutionDir)\NbSites.Web\$(OutDir)%(Filename)%(Extension)')" />
+    <Message Text="CopyAreaDlls完成:@(MyCopyAreaDlls)" Importance="high" />
+  </Target>
+
 
   <!--fix vs call "CopyAreaFiles" failed because iis lock problems-->
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
@@ -41,6 +49,7 @@
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <CallTarget Targets="CopyAreaFiles" />
+    <CallTarget Targets="CopyAreaDlls" />
     <Delete Files="App_Offline.htm" />
   </Target>
 

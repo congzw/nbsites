@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore;
+﻿using System;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using NbSites.Web.Libs.Updates;
 
 namespace NbSites.Web
 {
@@ -7,6 +9,12 @@ namespace NbSites.Web
     {
         public static void Main(string[] args)
         {
+            var updateHelper = UpdateHelper.Resolve();
+            if (updateHelper.NeedUpdate())
+            {
+                var updateResult = updateHelper.Update();
+                Console.WriteLine(updateResult.Message);
+            }
             CreateWebHostBuilder(args).Build().Run();
         }
 
