@@ -1,6 +1,17 @@
 @using NbSites.Common.Web
+@using NbSites.Common.Modules
 @{
     ViewBag.Title = "Demo_Home_Index";
+    var moduleStartupHelper = ModuleStartupHelper.Instance;
+    var loadApplicationParts = moduleStartupHelper.LoadApplicationParts;
 }
-<h2>@this.Path</h2>
 <script src='@Url.AreaContent("~/Content/scripts/home_index.js", "Demo")'></script>
+<h2>@this.Path</h2>
+<hr />
+@foreach (var loadApplicationPart in loadApplicationParts)
+{
+    <p>
+        <span>@loadApplicationPart.Key</span>:  <span>@loadApplicationPart.Value</span>
+    </p>
+}
+<hr />
