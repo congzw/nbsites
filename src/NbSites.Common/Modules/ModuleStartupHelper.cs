@@ -19,12 +19,14 @@ namespace NbSites.Common.Modules
 
 
         public AssemblyLoadContext LoadContext { get; set; }
-        
+
         public Func<IList<Assembly>> GetAssemblies { get; set; }
 
-        public IDictionary<string, string> AddApplicationPart(IMvcBuilder mvcBuilder)
+        public Dictionary<string, string> LoadApplicationParts { get; set; }
+
+        public void AddApplicationPart(IMvcBuilder mvcBuilder)
         {
-            var loadResult = new Dictionary<string, string>();
+            LoadApplicationParts = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             var assemblies = GetAssemblies();
             foreach (var assembly in assemblies)
             {
@@ -33,15 +35,13 @@ namespace NbSites.Common.Modules
                     //for test loadResult
                     var asm = LoadContext.LoadFromAssemblyName(assembly.GetName());
                     mvcBuilder.AddApplicationPart(asm);
-                    loadResult[assembly.FullName] = "OK";
+                    LoadApplicationParts[assembly.FullName] = "OK";
                 }
                 catch (Exception ex)
                 {
-                    loadResult[assembly.FullName] = "KO: " + ex.Message;
+                    LoadApplicationParts[assembly.FullName] = "KO: " + ex.Message;
                 }
             }
-
-            return loadResult;
         }
 
         public static ModuleStartupHelper Instance = new ModuleStartupHelper();
@@ -60,16 +60,16 @@ namespace NbSites.Common.Modules
             var allLib = DependencyContext.Default.CompileLibraries;
             var libs = allLib.Where(x => x.Name.StartsWith(modulePrefix, StringComparison.OrdinalIgnoreCase));
             var assemblies = libs.Select(lib =>
+            {
+                try
                 {
-                    try
-                    {
-                        return LoadContext.LoadFromAssemblyName(new AssemblyName(lib.Name));
-                    }
-                    catch (Exception)
-                    {
-                        return null;
-                    }
+                    return LoadContext.LoadFromAssemblyName(new AssemblyName(lib.Name));
                 }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
             ).Where(x => x != null).ToList();
 
             var moduleFiles = Directory.GetFiles(root, modulePrefix + "*.dll");
